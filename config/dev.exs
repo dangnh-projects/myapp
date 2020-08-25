@@ -5,7 +5,7 @@ config :myapp, Myapp.Repo,
   username: "sa",
   password: "anhnangcuaanh",
   database: "myapp_dev",
-  hostname: "localhost",
+  hostname: "VPNH-LAP-164",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

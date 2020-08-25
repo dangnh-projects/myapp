@@ -11,6 +11,8 @@ defmodule Myapp.Application do
       Myapp.Repo,
       # Start the Telemetry supervisor
       MyappWeb.Telemetry,
+      # Start schedule
+      Myapp.Scheduler,
       # Start the PubSub system
       {Phoenix.PubSub, name: Myapp.PubSub},
       # Start the Endpoint (http/https)
