@@ -9,6 +9,14 @@ config :myapp, Myapp.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+config :myapp, Myapp.RepoBio,
+  username: "dangnh",
+  password: "NHG@DangNH231",
+  database: "BioStar",
+  hostname: "172.16.69.200",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #

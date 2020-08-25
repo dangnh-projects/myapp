@@ -1,0 +1,44 @@
+<h1>Show User</h1>
+<!--
+<ul>
+
+  <li>
+    <strong>Susername:</strong>
+    <%= @user.sUserName %>
+  </li>
+
+  <li>
+    <strong>Ndepartmentidn:</strong>
+    <%= @user.nDepartmentIdn %>
+  </li>
+
+  <li>
+    <strong>Stelnumber:</strong>
+    <%= @user.sTelNumber %>
+  </li>
+
+  <li>
+    <strong>Semail:</strong>
+    <%= @user.sEmail %>
+  </li>
+
+  <li>
+    <strong>Suserid:</strong>
+    <%= @user.sUserID %>
+  </li>
+
+  <li>
+    <strong>Nstartdate:</strong>
+    <%= @user.nStartDate %>
+  </li>
+
+  <li>
+    <strong>Nenddate:</strong>
+    <%= @user.nEndDate %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user) %></span>
+<span><%= link "Back", to: Routes.user_path(@conn, :index) %></span>
+-->
