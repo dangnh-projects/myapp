@@ -1,5 +1,6 @@
 defmodule MyappWeb.Router do
   use MyappWeb, :router
+  use Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,10 +14,18 @@ defmodule MyappWeb.Router do
     plug :accepts, ["json"]
   end
 
+
   scope "/", MyappWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+  end
+
+  scope "/", MyappWeb do
+    pipe_through :browser
+
+    get "/users", UserController, :index
+    #resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.
@@ -38,5 +47,11 @@ defmodule MyappWeb.Router do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: MyappWeb.Telemetry
     end
+  end
+
+
+  if Mix.env == :dev do
+    # If using Phoenix
+    forward "/sent_emails", Bamboo.SentEmailViewerPlug
   end
 end

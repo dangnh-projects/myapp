@@ -9,6 +9,8 @@ defmodule Myapp.Application do
     children = [
       # Start the Ecto repository
       Myapp.Repo,
+      # Start the Ecto repository
+      Myapp.RepoBio,
       # Start the Telemetry supervisor
       MyappWeb.Telemetry,
       # Start schedule
