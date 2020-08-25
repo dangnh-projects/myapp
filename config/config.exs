@@ -10,6 +10,8 @@ use Mix.Config
 config :myapp,
   ecto_repos: [Myapp.Repo]
 
+config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
+
 # Configures the endpoint
 config :myapp, MyappWeb.Endpoint,
   url: [host: "localhost"],
@@ -45,3 +47,26 @@ config :myapp, Myapp.Mailer,
   retries: 1,
   no_mx_lookups: false, # can be `true`
   auth: :if_available # can be `always`.
+
+# Config Quantum
+#config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
+
+config :myapp, Myapp.Scheduler,
+  timezone: "Asia/Bangkok",
+  jobs: [
+    # Every minute
+    #{"* * * * *",              {Heartbeat, :send, []}},
+    #{{:cron, "* * * * *"},     {Heartbeat, :send, []}},
+    # Every second
+    #{{:extended, "* * * * *"}, {Heartbeat, :send, []}},
+    # Every 15 minutes
+    #{"45 17 * * *",           {Myapp.SendMail, :send_mail, []}},#fn -> System.cmd("rm", ["/tmp/tmp_"]) end},
+    #"28 18 * * *":  fn -> IO.puts("Hello QUANTUM!") end,
+    #"* * * * *": fn -> IO.puts("Hello QUANTUM!") end,
+    {"50 18 * * *", fn -> IO.puts("Hello QUANTUM!") end},
+    #{"* * * * *",  fn -> IO.puts("Hello QUANTUM!") end}
+    # Runs on 18, 20, 22, 0, 2, 4, 6:
+    #{"0 18-6/2 * * *",         fn -> :mnesia.backup('/var/backup/mnesia') end},
+    # Runs every midnight:
+    #{"@daily",                 {Backup, :backup, []}}
+  ]

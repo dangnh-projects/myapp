@@ -46,7 +46,9 @@ defmodule Myapp.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:bamboo, "~> 1.5"},
-      {:bamboo_smtp, "~> 2.1"}
+      {:bamboo_smtp, "~> 2.1"},
+      {:quantum, "~> 3.1"},
+      {:tzdata, "~> 1.0.1"}
     ]
   end
 
