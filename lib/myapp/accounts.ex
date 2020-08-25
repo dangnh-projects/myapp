@@ -16,9 +16,18 @@ defmodule Myapp.Accounts do
       [%User{}, ...]
 
   """
-  def list_users do
-    RepoBio.all(User)
-  end
+  # def list_users do
+  #   RepoBio.all(User)
+  # end
+
+    def list_users do
+      query =
+        User
+        |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)))
+        |> order_by([u], [asc: u.sUserID])
+
+      RepoBio.all(query)
+    end
 
   @doc """
   Gets a single user.

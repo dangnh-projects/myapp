@@ -63,10 +63,14 @@ config :myapp, Myapp.Scheduler,
     #{"45 17 * * *",           {Myapp.SendMail, :send_mail, []}},#fn -> System.cmd("rm", ["/tmp/tmp_"]) end},
     #"28 18 * * *":  fn -> IO.puts("Hello QUANTUM!") end,
     #"* * * * *": fn -> IO.puts("Hello QUANTUM!") end,
-    {"50 18 * * *", fn -> IO.puts("Hello QUANTUM!") end},
+    #{"50 18 * * *", fn -> IO.puts("Hello QUANTUM!") end},
+    {"* * * * *", {Myapp.SendMail, :send_mail, []}},
     #{"* * * * *",  fn -> IO.puts("Hello QUANTUM!") end}
     # Runs on 18, 20, 22, 0, 2, 4, 6:
     #{"0 18-6/2 * * *",         fn -> :mnesia.backup('/var/backup/mnesia') end},
     # Runs every midnight:
     #{"@daily",                 {Backup, :backup, []}}
   ]
+
+config :myapp, Myapp.Mailer,
+  adapter: Bamboo.LocalAdapter
