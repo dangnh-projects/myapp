@@ -8,7 +8,7 @@
 use Mix.Config
 
 config :myapp,
-  ecto_repos: [Myapp.Repo, Myapp.RepoBio]
+  ecto_repos: [Myapp.RepoWork, Myapp.RepoBio]
 
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 

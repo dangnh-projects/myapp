@@ -1,4 +1,4 @@
-defmodule Myapp.Repo do
+defmodule Myapp.RepoWork do
   use Ecto.Repo,
     otp_app: :myapp,
     adapter: Ecto.Adapters.Tds
