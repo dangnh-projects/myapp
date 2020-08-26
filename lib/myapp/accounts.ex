@@ -20,7 +20,7 @@ defmodule Myapp.Accounts do
   #   RepoBio.all(User)
   # end
 
-    def list_users do
+    def list_employees do
       query =
         Employee
         |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)))
@@ -29,7 +29,7 @@ defmodule Myapp.Accounts do
       RepoBio.all(query)
     end
 
-    def select_users do
+    def select_employees do
       query =
         Employee
         |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)) and u.sUserID == "1452")
@@ -38,7 +38,7 @@ defmodule Myapp.Accounts do
       RepoBio.all(query)
     end
 
-    def get_user!(), do: RepoBio.get!(Employee, "1452")
+    def get_employee!(), do: RepoBio.get!(Employee, "1452")
 
   @doc """
   Gets a single user.

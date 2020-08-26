@@ -5,7 +5,7 @@ defmodule MyappWeb.EmployeeController do
   #alias Myapp.Accounts.User
 
   def index(conn, _params) do
-    employees = Accounts.list_users()
+    employees = Accounts.list_employees()
     render(conn, "index.html", employees: employees)
   end
 
