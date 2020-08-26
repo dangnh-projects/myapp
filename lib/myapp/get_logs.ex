@@ -16,9 +16,9 @@ defmodule Myapp.GetLogs do
           min_date = Timex.from_unix(min_date_unix)
           min_time_format = Timex.format!(min_date, "%I:%M %p", :strftime)
           # send mail morning
-          SendMail.send_mail(date_mail, min_time_format, user)
+          SendMail.send_mail_morning(date_mail, min_time_format, user)
         else
-          SendMail.send_mail(date_mail, nil, user)
+          SendMail.send_mail_morning(date_mail, nil, user)
         end
       end
     end

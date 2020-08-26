@@ -4,7 +4,7 @@ defmodule Myapp.Email do
   alias Myapp.Accounts
   alias Timex
 
-  def welcome_email(dateMail, minTime, user) do
+  def working_daily_mail_morning(dateMail, minTime, user) do
     from_mail_address = "dangnh@nhg.vn"
     to_mail_address = "b0yb0m113@gmail.com"
     subtext = "Daily check fingerprint notifications"
@@ -16,7 +16,7 @@ defmodule Myapp.Email do
     |> from(from_mail_address)
     |> to(to_mail_address)
     |> subject(subtext)
-    |> render("email.html", user: user, dateMail: dateMail, minTime: minTime)
+    |> render("email_morning.html", user: user, dateMail: dateMail, minTime: minTime)
   end
 
   def working_daily_mail_night(dateMail, minTime, maxTime, user) do
