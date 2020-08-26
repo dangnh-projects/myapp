@@ -1,0 +1,12 @@
+
+<p>Good morning <%= @user.sUserName %>,</p>
+
+<%= if is_nil(@minTime) do%>
+    <p>Please check-in, you missing check fingerprint in <%= @dateMail %>.</p>
+<% else %>
+    <p>You check-in at <%= @minTime%> in <%= @dateMail %>.</p>
+<% end %>
+
+
+
+<p>Thank you!!!</p>

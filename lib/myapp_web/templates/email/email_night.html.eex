@@ -1,0 +1,15 @@
+
+<p>Good morning <%= @user.sUserName %>,</p>
+
+<%= if not(is_nil(@minTime)) and not(is_nil(@maxTime)) do%>
+    <p>You check-in at <%= @minTime %> and check-out at <%= @maxTime %> in <%= @dateMail %>.</p>
+<% else %>
+    <%= if not(is_nil(@minTime)) do%>
+        <p>You missing onetime check, you check at <%= @minTime %> in <%= @dateMail %>.</p>
+    <% else %>
+        <p>You missing check fingerprint in <%= @dateMail %>.</p>
+    <% end %>
+<% end %>
+
+
+<p>Thank you!!!</p>

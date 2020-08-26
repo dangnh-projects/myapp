@@ -25,6 +25,8 @@ defmodule MyappWeb.Router do
     pipe_through :browser
 
     get "/users", UserController, :index
+    get "/eventlogs", EventLogController, :index
+    get "/eventlogs/:id", EventLogController, :show
     #resources "/users", UserController
   end
 

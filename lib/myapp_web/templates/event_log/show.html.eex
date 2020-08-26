@@ -1,0 +1,35 @@
+<h1>Show Event log</h1>
+
+<ul>
+
+  <li>
+    <strong>Neventlogidn:</strong>
+    <%= @event_log.nEventLogIdn %>
+  </li>
+
+  <li>
+    <strong>Ndatetime:</strong>
+    <%= @event_log.nDateTime %>
+  </li>
+
+  <li>
+    <strong>Nreaderidn:</strong>
+    <%= @event_log.nReaderIdn %>
+  </li>
+
+  <li>
+    <strong>Neventidn:</strong>
+    <%= @event_log.nEventIdn %>
+  </li>
+
+  <li>
+    <strong>Nuserid:</strong>
+    <%= @event_log.nUserID %>
+  </li>
+
+  <li>
+    <strong>Nislog:</strong>
+    <%= @event_log.nIsLog %>
+  </li>
+
+</ul>

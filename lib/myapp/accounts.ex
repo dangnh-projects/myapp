@@ -29,6 +29,17 @@ defmodule Myapp.Accounts do
       RepoBio.all(query)
     end
 
+    def select_users do
+      query =
+        User
+        |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)) and u.sUserID == "1452")
+        #|> order_by([u], [asc: u.sUserID])
+
+      RepoBio.all(query)
+    end
+
+    def get_user!(), do: RepoBio.get!(User, "1452")
+
   @doc """
   Gets a single user.
 
