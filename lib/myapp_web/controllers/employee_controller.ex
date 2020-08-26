@@ -1,12 +1,12 @@
-defmodule MyappWeb.UserController do
+defmodule MyappWeb.EmployeeController do
   use MyappWeb, :controller
 
   alias Myapp.Accounts
   #alias Myapp.Accounts.User
 
   def index(conn, _params) do
-    users = Accounts.list_users()
-    render(conn, "index.html", users: users)
+    employees = Accounts.list_users()
+    render(conn, "index.html", employees: employees)
   end
 
   # def new(conn, _params) do
