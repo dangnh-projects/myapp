@@ -1,4 +1,4 @@
-defmodule Myapp.Accounts.User do
+defmodule Myapp.Accounts.Employee do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -16,8 +16,8 @@ defmodule Myapp.Accounts.User do
   end
 
   @doc false
-  def changeset(user, attrs) do
-    user
+  def changeset(employee, attrs) do
+    employee
     |> cast(attrs, [:sUserName, :nDepartmentIdn, :sTelNumber, :sEmail, :sUserID, :nStartDate, :nEndDate])
     |> validate_required([:sUserName, :nDepartmentIdn, :sUserID])
   end

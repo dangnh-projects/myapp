@@ -5,7 +5,7 @@ defmodule Myapp.Accounts do
 
   import Ecto.Query, warn: false
   alias Myapp.RepoBio
-  alias Myapp.Accounts.User
+  alias Myapp.Accounts.Employee
 
   @doc """
   Returns the list of users.
@@ -22,7 +22,7 @@ defmodule Myapp.Accounts do
 
     def list_users do
       query =
-        User
+        Employee
         |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)))
         |> order_by([u], [asc: u.sUserID])
 
@@ -31,14 +31,14 @@ defmodule Myapp.Accounts do
 
     def select_users do
       query =
-        User
+        Employee
         |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)) and u.sUserID == "1452")
         #|> order_by([u], [asc: u.sUserID])
 
       RepoBio.all(query)
     end
 
-    def get_user!(), do: RepoBio.get!(User, "1452")
+    def get_user!(), do: RepoBio.get!(Employee, "1452")
 
   @doc """
   Gets a single user.

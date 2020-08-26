@@ -1,0 +1,30 @@
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suserid</th>
+      <th>Susername</th>
+      <th>Ndepartmentidn</th>
+      <th>Stelnumber</th>
+      <th>Semail</th>
+      <th>Nstartdate</th>
+      <th>Nenddate</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for employee <- @employees do %>
+    <tr>
+      <td><%= employee.sUserID %></td>
+      <td><%= employee.sUserName %></td>
+      <td><%= employee.nDepartmentIdn %></td>
+      <td><%= employee.sTelNumber %></td>
+      <td><%= employee.sEmail %></td>
+      <td><%= employee.nStartDate %></td>
+      <td><%= employee.nEndDate %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
