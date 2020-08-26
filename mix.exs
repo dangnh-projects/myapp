@@ -48,7 +48,8 @@ defmodule Myapp.MixProject do
       {:bamboo, "~> 1.5"},
       {:bamboo_smtp, "~> 2.1"},
       {:quantum, "~> 3.1"},
-      {:tzdata, "~> 1.0.1"}
+      {:tzdata, "~> 1.0.1"},
+      {:timex, "~> 3.6"}
     ]
   end
 

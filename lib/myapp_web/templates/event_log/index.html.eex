@@ -1,0 +1,32 @@
+<h1>Listing Eventlogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Neventlogidn</th>
+      <th>Ndatetime</th>
+      <th>Nreaderidn</th>
+      <th>Neventidn</th>
+      <th>Nuserid</th>
+      <th>Nislog</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for event_log <- @eventlogs do %>
+    <tr>
+      <td><%= event_log.nEventLogIdn %></td>
+      <td><%= event_log.nDateTime %></td>
+      <td><%= event_log.nReaderIdn %></td>
+      <td><%= event_log.nEventIdn %></td>
+      <td><%= event_log.nUserID %></td>
+      <td><%= event_log.nIsLog %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.event_log_path(@conn, :show, event_log.nEventLogIdn) %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

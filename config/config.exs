@@ -64,7 +64,11 @@ config :myapp, Myapp.Scheduler,
     #"28 18 * * *":  fn -> IO.puts("Hello QUANTUM!") end,
     #"* * * * *": fn -> IO.puts("Hello QUANTUM!") end,
     #{"50 18 * * *", fn -> IO.puts("Hello QUANTUM!") end},
-    {"* * * * *", {Myapp.SendMail, :send_mail, []}},
+    #{{:extended, "* * * * *"}, {Myapp.SendMail, :send_mail, []}},
+    #{{:extended, "* * * * *"}, {Myapp.GetLogs, :get_event_log_day_morning, []}},
+
+    #{{:extended, "* * * * *"}, {Myapp.GetLogs, :get_event_log_day_night, []}},
+
     #{"* * * * *",  fn -> IO.puts("Hello QUANTUM!") end}
     # Runs on 18, 20, 22, 0, 2, 4, 6:
     #{"0 18-6/2 * * *",         fn -> :mnesia.backup('/var/backup/mnesia') end},
