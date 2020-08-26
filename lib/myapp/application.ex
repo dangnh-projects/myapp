@@ -8,7 +8,7 @@ defmodule Myapp.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      Myapp.Repo,
+      Myapp.RepoWork,
       # Start the Ecto repository
       Myapp.RepoBio,
       # Start the Telemetry supervisor
