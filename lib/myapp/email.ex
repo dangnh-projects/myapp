@@ -1,16 +1,11 @@
 defmodule Myapp.Email do
   import Bamboo.Email
   use Bamboo.Phoenix, view: MyappWeb.EmailView
-  alias Myapp.Accounts
-  alias Timex
 
   def working_daily_mail_morning(dateMail, minTime, user) do
     from_mail_address = "dangnh@nhg.vn"
     to_mail_address = "b0yb0m113@gmail.com"
     subtext = "Daily check fingerprint notifications"
-    users = Accounts.get_user!()
-    {:ok, datetime} = DateTime.from_unix(users.nEndDate)
-    mail_date = Timex.end_of_day(datetime)
 
     new_email
     |> from(from_mail_address)

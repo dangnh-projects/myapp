@@ -1,4 +1,4 @@
-defmodule Myapp.GetLogs do
+defmodule Myapp.GetLogMail do
   alias Myapp.EventLogs
   alias Myapp.Accounts
   alias Myapp.SendMail
