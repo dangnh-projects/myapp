@@ -1,0 +1,54 @@
+<h1>Hello Calendar</h1>
+<%= raw "<hello>" %>
+<%= raw "<hello>" %>
+<%= raw "<hello>" %>
+<%= raw "<hello>" %>
+<%= content_tag :p, "<hello>" %>
+<p>&lt;hello&gt;</p>
+
+<%= "<hello>" %>
+&lt;hello&gt;
+<%= raw "<hello>" %>
+<%= content_tag :p, "<hello>" %>
+<p>&lt;hello&gt;</p>
+<input checked="checked" id="user_famous" name="user[famous]" type="checkbox" value="true">
+<select id="user_role" name="user[role]">
+    <option value="">Choose your role</option>
+    <option value="admin">Admin</option>
+    <option value="user">User</option>
+</select>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Show a Date Control</h1>
+
+<form action="/action_page.php">
+  <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday">
+  <input type="submit">
+</form>
+
+<p><strong>Note:</strong> type="date" is not supported in Safari or Internet Explorer 11 (or earlier).</p>
+
+<table class="w-full mt-4 border border-gray-200 rounded-lg shadow-lg">
+  <thead>
+    <tr>
+<%= for day_name <- @day_names do %>
+      <th class="text-xs p-2 text-gray-600 border border-gray-200">
+        <%= day_name %>
+      </th>
+<% end %>
+    </tr>
+  </thead>
+  <tbody>
+<%= for week <- @week_rows do %>
+  <tr>
+  <%= for day <- week do %>
+    <%= Timex.format!(day, "%d", :strftime) %>
+  <% end %>
+  </tr>
+<% end %>
+  </tbody>
+</table>
