@@ -30,6 +30,13 @@ defmodule MyappWeb.Router do
     #resources "/users", UserController
   end
 
+  scope "/", MyappWeb do
+    pipe_through :browser
+
+    get "/calendars", CalendarController, :index
+    #resources "/users", UserController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", MyappWeb do
   #   pipe_through :api
