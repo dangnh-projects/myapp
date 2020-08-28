@@ -1,5 +1,5 @@
 defmodule Myapp.WorkingUsers do
-  alias Myapp.Accounts
+  #alias Myapp.Accounts
   @moduledoc """
   The Accounts context.
   """
@@ -23,9 +23,9 @@ defmodule Myapp.WorkingUsers do
 
     def list_employees do
       query =
-        Employee
-        |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)))
-        |> order_by([u], [asc: u.nUserIdn])
+        User
+        #|> where([u], u.sEmail != "" and not(is_nil(u.sEmail)))
+        |> order_by([u], [desc: u.sEmail, asc: u.nUserIdn])
 
         RepoWork.all(query)
     end
@@ -67,7 +67,13 @@ defmodule Myapp.WorkingUsers do
       ** (Ecto.NoResultsError)
 
   """
-  #def get_user!(sUserID), do: RepoBio.get!(User, sUserID)
+  def get_user!(sUserID), do: RepoWork.get!(User, sUserID)
+
+  # def get_user() do
+  #   User
+  #   |> limit(1)
+  #   |> RepoWork.all()
+  # end
 
   @doc """
   Creates a user.
@@ -99,11 +105,11 @@ defmodule Myapp.WorkingUsers do
       {:error, %Ecto.Changeset{}}
 
   """
-  # def update_user(%User{} = user, attrs) do
-  #   user
-  #   |> User.changeset(attrs)
-  #   |> RepoBio.update()
-  # end
+  def update_user(%User{} = user, attrs) do
+    user
+    |> User.changeset(attrs)
+    |> RepoWork.update()
+  end
 
   @doc """
   Deletes a user.
@@ -130,7 +136,7 @@ defmodule Myapp.WorkingUsers do
       %Ecto.Changeset{data: %User{}}
 
   """
-  # def change_user(%User{} = user, attrs \\ %{}) do
-  #   User.changeset(user, attrs)
-  # end
+  def change_user(%User{} = user, attrs \\ %{}) do
+    User.changeset(user, attrs)
+  end
 end

@@ -24,10 +24,21 @@ defmodule MyappWeb.Router do
   scope "/", MyappWeb do
     pipe_through :browser
 
+    get "/working_users", WorkingUserController, :index
+    get "/working_users/:id/edit", WorkingUserController, :edit
+    get "/working_users/new", WorkingUserController, :new
+    get "/working_users/:id", WorkingUserController, :show
+
+    # post /working_users", WorkingUserController, :create
+    # patch "/working_users/:id", WorkingUserController, :update
+    put "/working_users/:id", WorkingUserController, :update
+    # delete "/working_users/:id", WorkingUserController, :delete
+
+    #get "/working_users/:id", WorkingUserController, :update
     get "/employees", EmployeeController, :index
     get "/eventlogs", EventLogController, :index
     get "/eventlogs/:id", EventLogController, :show
-    #resources "/users", UserController
+    resources "/working_users", WorkingUserController
   end
 
   scope "/", MyappWeb do

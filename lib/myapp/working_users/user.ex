@@ -12,6 +12,7 @@ defmodule Myapp.WorkingUsers.User do
     field :sTelNumber, :string
     field :sUserName, :string
     field :nUserIdn, :integer
+    field :status_mail, :boolean
 
     #timestamps()
   end
@@ -19,7 +20,7 @@ defmodule Myapp.WorkingUsers.User do
   @doc false
   def changeset(employee, attrs) do
     employee
-    |> cast(attrs, [:nUserIdn, :sUserName, :nDepartmentIdn, :sTelNumber, :sEmail, :sUserID, :nStartDate, :nEndDate])
+    |> cast(attrs, [:nUserIdn, :sUserName, :nDepartmentIdn, :sTelNumber, :sEmail, :sUserID, :nStartDate, :nEndDate, :status_mail])
     |> validate_required([:sUserName, :nDepartmentIdn, :sUserID, :nUserIdn])
   end
 end

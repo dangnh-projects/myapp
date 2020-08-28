@@ -1,0 +1,39 @@
+<h1>Listing Employee</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User Name</th>
+      <th>Department</th>
+      <th>Telnumber</th>
+      <th>Email</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Mail Status</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.sUserID %></td>
+      <td><%= user.sUserName %></td>
+      <td><%= user.nDepartmentIdn %></td>
+      <td><%= user.sTelNumber %></td>
+      <td><%= user.sEmail %></td>
+      <td><%=  Timex.format!(Timex.from_unix(user.nStartDate), "%d/%m/%Y", :strftime) %></td>
+      <td><%= Timex.format!(Timex.from_unix(user.nEndDate), "%d/%m/%Y", :strftime) %></td>
+      <td><%= user.status_mail %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.working_user_path(@conn, :show, user.sUserID) %></span>
+        <span><%= link "Edit", to: Routes.working_user_path(@conn, :edit, user.sUserID) %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New User", to: Routes.working_user_path(@conn, :new) %></span>

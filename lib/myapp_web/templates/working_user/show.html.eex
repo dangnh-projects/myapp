@@ -1,0 +1,48 @@
+<h1>Show User</h1>
+
+<ul>
+
+  <li>
+    <strong>Id:</strong>
+    <%= @user.sUserID %>
+  </li>
+
+  <li>
+    <strong>User Name:</strong>
+    <%= @user.sUserName %>
+  </li>
+
+  <li>
+    <strong>Department:</strong>
+    <%= @user.nDepartmentIdn %>
+  </li>
+
+  <li>
+    <strong>Telnumber:</strong>
+    <%= @user.sTelNumber %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.sEmail %>
+  </li>
+
+  <li>
+    <strong>Start Date:</strong>
+    <%= Timex.format!(Timex.from_unix(@user.nStartDate), "%d/%m/%Y", :strftime) %>
+  </li>
+
+  <li>
+    <strong>End Date:</strong>
+    <%= Timex.format!(Timex.from_unix(@user.nEndDate), "%d/%m/%Y", :strftime) %>
+  </li>
+
+  <li>
+    <strong>Mail Status:</strong>
+    <%= @user.status_mail %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.working_user_path(@conn, :edit, @user.sUserID) %></span>
+<span><%= link "Back", to: Routes.working_user_path(@conn, :index) %></span>
