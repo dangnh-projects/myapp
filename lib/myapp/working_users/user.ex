@@ -1,9 +1,9 @@
-defmodule Myapp.Accounts.Employee do
+defmodule Myapp.WorkingUsers.User do
   use Ecto.Schema
   import Ecto.Changeset
 
   @primary_key false
-  schema "tb_user" do
+  schema "tb_users" do
     field :sUserID, :string, primary_key: true
     field :nDepartmentIdn, :integer
     field :nEndDate, :integer

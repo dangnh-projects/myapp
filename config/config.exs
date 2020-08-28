@@ -67,7 +67,9 @@ config :myapp, Myapp.Scheduler,
     #{{:extended, "* * * * *"}, {Myapp.SendMail, :send_mail, []}},
     #{{:extended, "* * * * *"}, {Myapp.GetLogs, :get_event_log_day_morning, []}},
 
-    #{{:extended, "* * * * *"}, {Myapp.GetLogs, :get_event_log_day_night, []}},
+    #{{:extended, "* * * * *"}, {Myapp.GetLogMail, :get_event_log_day_night, []}},
+    #{ "* * * * *", {Myapp.GetLogEmplyee, :get_employee_change, []}},
+
 
     #{"* * * * *",  fn -> IO.puts("Hello QUANTUM!") end}
     # Runs on 18, 20, 22, 0, 2, 4, 6:

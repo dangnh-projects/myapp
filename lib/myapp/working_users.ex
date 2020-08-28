@@ -1,11 +1,12 @@
-defmodule Myapp.Accounts do
+defmodule Myapp.WorkingUsers do
+  alias Myapp.Accounts
   @moduledoc """
   The Accounts context.
   """
 
   import Ecto.Query, warn: false
-  alias Myapp.RepoBio
-  alias Myapp.Accounts.Employee
+  alias Myapp.RepoWork
+  alias Myapp.WorkingUsers.User
 
   @doc """
   Returns the list of users.
@@ -26,48 +27,31 @@ defmodule Myapp.Accounts do
         |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)))
         |> order_by([u], [asc: u.nUserIdn])
 
-      RepoBio.all(query)
+        RepoWork.all(query)
     end
 
-    def select_employees do
-      query =
-        Employee
-        |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)) and u.sUserID == "1452")
-        |> order_by([u], [asc: u.nUserIdn])
+    # def select_employees do
+    #   query =
+    #     Employee
+    #     |> where([u], u.sEmail != "" and not(is_nil(u.sEmail)) and u.sUserID == "1452")
+    #     |> order_by([u], [asc: u.nUserIdn])
 
-      RepoBio.all(query)
-    end
+    #   RepoBio.all(query)
+    # end
 
-    def sync_all_employees() do
-      Employee
-      #|> where([u], u.sEmail != "" and not(is_nil(u.sEmail)) and u.sUserID == "1452")
-      |> order_by([u], [asc: u.nUserIdn])
-      |> RepoBio.all()
-    end
-
-    # def sync_50_employees() do
+    # def sync_all_employees() do
     #   Employee
-    #   #|> where([u], u.sEmail != "" and not(is_nil(u.sEmail)) and u.sUserID == "1452")
     #   |> order_by([u], [asc: u.nUserIdn])
-    #   |> limit(260)
     #   |> RepoBio.all()
     # end
 
-    # def sync_10_employees() do
+    # def sync_get_employees(emp_id) do
     #   Employee
-    #   #|> where([u], u.sEmail != "" and not(is_nil(u.sEmail)) and u.sUserID == "1452")
-    #   |> order_by([u], [asc: u.nUserIdn])
-    #   |> limit(10)
+    #   |> where([u], u.nUserIdn > ^emp_id)
     #   |> RepoBio.all()
     # end
 
-    def sync_get_employees(emp_id) do
-      Employee
-      |> where([u], u.nUserIdn > ^emp_id)
-      |> RepoBio.all()
-    end
-
-    def get_employee!(), do: RepoBio.get!(Employee, "1452")
+    # def get_employee!(), do: RepoBio.get!(Employee, "1452")
 
   @doc """
   Gets a single user.
@@ -97,11 +81,11 @@ defmodule Myapp.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
-  # def create_user(attrs \\ %{}) do
-  #   %User{}
-  #   |> User.changeset(attrs)
-  #   |> RepoBio.insert()
-  # end
+  def create_user(attrs \\ %{}) do
+    %User{}
+    |> User.changeset(attrs)
+    |> RepoWork.insert()
+  end
 
   @doc """
   Updates a user.

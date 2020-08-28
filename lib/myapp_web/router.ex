@@ -34,6 +34,7 @@ defmodule MyappWeb.Router do
     pipe_through :browser
 
     get "/calendars", CalendarController, :index
+    # resources "/diary_employees", DiaryEmployeeController
     #resources "/users", UserController
   end
 
