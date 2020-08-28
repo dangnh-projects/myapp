@@ -1,0 +1,30 @@
+<h1>Listing Diary employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Emp updated</th>
+      <th>Emp table</th>
+      <th>Emp count</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for diary_employee <- @diary_employees do %>
+    <tr>
+      <td><%= diary_employee.emp_Updated %></td>
+      <td><%= diary_employee.emp_Table %></td>
+      <td><%= diary_employee.emp_Count %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.diary_employee_path(@conn, :show, diary_employee) %></span>
+        <span><%= link "Edit", to: Routes.diary_employee_path(@conn, :edit, diary_employee) %></span>
+        <span><%= link "Delete", to: Routes.diary_employee_path(@conn, :delete, diary_employee), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Diary employee", to: Routes.diary_employee_path(@conn, :new) %></span>

@@ -1,0 +1,23 @@
+<h1>Show Diary employee</h1>
+
+<ul>
+
+  <li>
+    <strong>Emp updated:</strong>
+    <%= @diary_employee.emp_Updated %>
+  </li>
+
+  <li>
+    <strong>Emp table:</strong>
+    <%= @diary_employee.emp_Table %>
+  </li>
+
+  <li>
+    <strong>Emp count:</strong>
+    <%= @diary_employee.emp_Count %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.diary_employee_path(@conn, :edit, @diary_employee) %></span>
+<span><%= link "Back", to: Routes.diary_employee_path(@conn, :index) %></span>
